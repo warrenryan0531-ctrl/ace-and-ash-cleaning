@@ -6,8 +6,10 @@ import { SITE } from '@/lib/site';
 
 const LINKS = [
   { href: '/services', label: 'Services' },
+  { href: '/pricing', label: 'Pricing' },
   { href: '/the-standard', label: 'The Standard' },
   { href: '/service-areas', label: 'Where we clean' },
+  { href: '/journal', label: 'Journal' },
   { href: '/about', label: 'About Erica' },
 ];
 
@@ -27,10 +29,17 @@ export default function Nav() {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
+  useEffect(() => {
+    if (!open) return;
+    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', esc);
+    return () => window.removeEventListener('keydown', esc);
+  }, [open]);
 
   const light = overHero && !solid && !open;
 
   return (
+    <>
     <header className={`fixed inset-x-0 top-0 z-[70] transition-[background-color,border-color,color] duration-700 no-print ${
         light ? 'bg-transparent text-[#f4f0e9]' : 'border-b border-[#d6cfc2] bg-[#f4f0e9]/94 text-[#1a1714] backdrop-blur-[6px]'
       }`} style={{ transitionTimingFunction: 'cubic-bezier(0.25,1,0.5,1)' }}>
@@ -40,7 +49,7 @@ export default function Nav() {
           <span className={`hidden text-[0.62rem] uppercase tracking-[0.22em] sm:inline ${light ? 'text-[#f4f0e9]/75' : 'text-[#5f5a52]'}`}>Nocatee, FL</span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-9 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 xl:gap-9 lg:flex">
           {LINKS.map((l) => (
             <Link key={l.href} href={l.href}
               aria-current={pathname.startsWith(l.href) ? 'page' : undefined}
@@ -72,6 +81,13 @@ export default function Nav() {
         </div>
       </div>
 
+    </header>
+
+    {/* Rendered as a SIBLING of <header>, never inside it. The header carries
+        backdrop-filter, which creates a containing block for position:fixed
+        descendants — nested here the panel resolved top:74px/bottom:0 against
+        the 75px header and collapsed to zero height, i.e. the mobile menu was
+        invisible on every phone. Keep this outside the header. */}
       <div id="mobile-nav" hidden={!open}
         className="fixed inset-x-0 top-[74px] bottom-0 z-[69] overflow-y-auto bg-[#f4f0e9] text-[#1a1714] lg:hidden">
         <div className="shell flex min-h-full flex-col justify-between py-10">
@@ -90,6 +106,6 @@ export default function Nav() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

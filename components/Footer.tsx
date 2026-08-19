@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SITE, SERVICES, AREAS } from '@/lib/site';
+import { POSTS } from '@/lib/posts';
 
 /* Giant cropped wordmark footer (Src 007) — type as architecture */
 export default function Footer() {
@@ -20,7 +21,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 text-[0.9rem]">
+          <div className="grid grid-cols-2 gap-10 text-[0.9rem] sm:grid-cols-3">
             <div>
               <p className="stationery stationery-light mb-5">Services</p>
               <ul className="-my-1.5">
@@ -29,6 +30,21 @@ export default function Footer() {
                     <Link href={`/services#${s.slug}`} className="lnk inline-block py-[7px] text-[#f4f0e9]/80 hover:text-[#f4f0e9]">{s.title}</Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+            <div>
+              <p className="stationery stationery-light mb-5">Read first</p>
+              <ul className="-my-1.5">
+                <li><Link href="/pricing" className="lnk inline-block py-[7px] text-[#f4f0e9]/80 hover:text-[#f4f0e9]">Pricing &amp; questions</Link></li>
+                <li><Link href="/first-clean" className="lnk inline-block py-[7px] text-[#f4f0e9]/80 hover:text-[#f4f0e9]">Your first clean</Link></li>
+                <li><Link href="/the-standard" className="lnk inline-block py-[7px] text-[#f4f0e9]/80 hover:text-[#f4f0e9]">The standard</Link></li>
+                <li><Link href="/about" className="lnk inline-block py-[7px] text-[#f4f0e9]/80 hover:text-[#f4f0e9]">About Erica</Link></li>
+                {POSTS.slice(0, 2).map((b) => (
+                  <li key={b.slug}>
+                    <Link href={`/journal/${b.slug}`} className="lnk inline-block py-[7px] text-[#f4f0e9]/80 hover:text-[#f4f0e9]">{b.title}</Link>
+                  </li>
+                ))}
+                <li><Link href="/journal" className="lnk inline-block py-[7px] text-[#f4f0e9]/60">All journal</Link></li>
               </ul>
             </div>
             <div>
