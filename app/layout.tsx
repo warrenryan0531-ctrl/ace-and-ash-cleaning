@@ -3,6 +3,7 @@ import { Instrument_Serif, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import ServiceAreaMap from '@/components/ServiceAreaMap';
 import A11yWidget from '@/components/A11yWidget';
 import CookieConsent from '@/components/CookieConsent';
 import { ScrollReveal, AccordionBehavior } from '@/components/Behaviors';
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <Nav />
         <main id="main">{children}</main>
+        <ServiceAreaMap />
         <Footer />
         <A11yWidget />
         <CookieConsent />
