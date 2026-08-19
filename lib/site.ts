@@ -12,7 +12,7 @@ export const SITE = {
   nextdoor: "https://nextdoor.com/pages/ace-ash-cleaning-jacksonville-il/",
   baseCity: "Nocatee",
   region: "FL",
-  url: "https://aceandash.vercel.app",
+  url: "https://ace-and-ash.vercel.app",
   hours: "Monday to Friday, 8:00am to 6:00pm",
   tagline: "Leave the mess for us.",
 } as const;

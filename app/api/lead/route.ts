@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     ['Address / area', String(b.address ?? '—')],
     ['Needs', conditions.length ? conditions.join(', ') : '—'],
     ['Notes', String(b.notes ?? '—')],
-    ['Source', String(b.source ?? 'aceandash.vercel.app')],
+    ['Source', String(b.source ?? 'ace-and-ash.vercel.app')],
   ];
 
   const html = `
