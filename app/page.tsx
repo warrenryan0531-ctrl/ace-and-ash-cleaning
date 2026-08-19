@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Photo from '@/components/Photo';
 import TheTurn from '@/components/TheTurn';
-import { SITE, SERVICES, AREAS, STANDARD } from '@/lib/site';
+import { SITE, SERVICES, AREAS, STANDARD, REVIEWS } from '@/lib/site';
 
 export default function Home() {
   return (
@@ -165,34 +165,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 08 — PROOF. Real content only (principle 7). No invented metrics. */}
+      {/* 08 — PROOF. Real content only (principle 7). Verified 2026-08-19: 5.0 from 33
+           Google reviews + 100% recommended from 9 on Facebook. No invented metrics. */}
       <section aria-labelledby="proof-h" className="border-y border-[#d6cfc2] bg-[#ebe5db]/55 py-[clamp(4rem,11vh,7rem)]">
         <div className="shell">
-          <p className="stationery reveal-soft">What people say</p>
-          <h2 id="proof-h" className="display display-md mt-4 max-w-[18ch] reveal-soft">
-            <span className="whisper">every</span> RECOMMENDATION <span className="whisper">so far.</span>
-          </h2>
-          <div className="mt-12 grid gap-10 md:grid-cols-[1.3fr_1fr] md:gap-16">
-            <blockquote className="reveal-soft">
-              <p className="display text-[1.5rem] leading-[1.4] md:text-[1.75rem]">
-                &ldquo;Erica and her team are so kind and caring. They genuinely care about their clients and
-                want to help any&hellip;&rdquo;
-              </p>
-              <footer className="stationery mt-5">Kye Dozier <em>on</em> Facebook</footer>
-            </blockquote>
-            <div className="flex flex-col justify-center gap-6 border-t border-[#d6cfc2] pt-8 md:border-l md:border-t-0 md:pl-16 md:pt-0">
-              <div className="reveal-soft">
-                <p className="display text-[3.4rem] leading-none">100%</p>
-                <p className="stationery mt-2">Recommended on Facebook</p>
-              </div>
-              <p className="text-[0.92rem] leading-relaxed text-[#68635b] reveal-soft">
-                Across every review left on the page to date. We would rather show you the real number than a
-                borrowed one.
-              </p>
-              <a href={SITE.facebook} target="_blank" rel="noopener noreferrer" className="stationery lnk reveal-soft">
-                Read them on Facebook &rarr;
-              </a>
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <div>
+              <p className="stationery reveal-soft">What people say</p>
+              <h2 id="proof-h" className="display display-md mt-4 max-w-[16ch] reveal-soft">
+                <span className="whisper">thirty-three reviews.</span> NOT ONE <span className="whisper">below five stars.</span>
+              </h2>
             </div>
+            <dl className="flex gap-12 reveal-soft">
+              <div>
+                <dt className="stationery">Google</dt>
+                <dd className="display mt-1 text-[3rem] leading-none">
+                  {SITE.googleRating.toFixed(1)}
+                  <span className="whisper ml-2 text-[1.1rem]">from {SITE.googleReviews}</span>
+                </dd>
+              </div>
+              <div>
+                <dt className="stationery">Facebook</dt>
+                <dd className="display mt-1 text-[3rem] leading-none">
+                  100%<span className="whisper ml-2 text-[1.1rem]">recommend</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div className="mt-14 grid gap-x-14 gap-y-10 md:grid-cols-3">
+            {REVIEWS.map((r) => (
+              <blockquote key={r.source + r.quote.slice(0, 12)} className="border-t border-[#d6cfc2] pt-7 reveal-soft">
+                <p className="display text-[1.3rem] leading-[1.4]">&ldquo;{r.quote}&rdquo;</p>
+                <footer className="stationery mt-5">{r.source}</footer>
+              </blockquote>
+            ))}
+          </div>
+
+          <div className="mt-12 flex flex-wrap gap-8 reveal-soft">
+            <a href={SITE.googleUrl} target="_blank" rel="noopener noreferrer" className="stationery lnk">
+              Read them on Google &rarr;
+            </a>
+            <a href={SITE.facebook} target="_blank" rel="noopener noreferrer" className="stationery lnk">
+              And on Facebook &rarr;
+            </a>
           </div>
         </div>
       </section>

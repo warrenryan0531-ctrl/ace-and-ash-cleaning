@@ -51,6 +51,13 @@ const schema = {
     'Licensed and insured residential and commercial cleaning, deep cleaning, move-in and move-out cleaning, and home organizing serving St. Johns, Duval and Clay counties, Florida.',
   founder: { '@type': 'Person', name: SITE.owner },
   priceRange: '$$$',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: SITE.googleRating,
+    reviewCount: SITE.googleReviews,
+    bestRating: 5,
+    '@id': `${SITE.url}/#rating`,
+  },
   address: { '@type': 'PostalAddress', addressLocality: 'Nocatee', addressRegion: 'FL', addressCountry: 'US' },
   areaServed: AREAS.map((a) => ({ '@type': 'City', name: a.name, containedInPlace: { '@type': 'AdministrativeArea', name: a.county } })),
   openingHoursSpecification: [{

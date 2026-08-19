@@ -15,7 +15,18 @@ export const SITE = {
   url: "https://ace-and-ash.vercel.app",
   hours: "Monday to Friday, 8:00am to 6:00pm",
   tagline: "Leave the mess for us.",
+  googleRating: 5.0,
+  googleReviews: 33,
+  googleUrl: "https://www.google.com/maps/search/Ace+%26+Ash+Cleaning+Nocatee+FL",
 } as const;
+
+/* Verified 2026-08-19 against the live Google Business Profile and Facebook page.
+   Real quotes only — never invent a reviewer or a number (taste principle 7). */
+export const REVIEWS = [
+  { quote: "100% the only cleaning company I would ever allow in my home!", source: "Google review" },
+  { quote: "Ace & Ash Cleaning completely saved the day.", source: "Google review" },
+  { quote: "Erica and her team are so kind and caring. They genuinely care about their clients and want to help any\u2026", source: "Kye Dozier, on Facebook" },
+];
 
 export type Service = {
   n: string;
