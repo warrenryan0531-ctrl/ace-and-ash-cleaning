@@ -1,36 +1,34 @@
-'use client';
-import { useEffect, useState } from 'react';
 import { SITE, AREAS } from '@/lib/site';
 
-/* 904 standard: service-area map (service-area-map skill).
-   Ace & Ash is a SERVICE-AREA business — the GBP has no public street address
-   (verified on Google Maps 2026-08-19), so this centers on the service area
-   rather than inventing a storefront pin. Her home address is intentionally
-   not published and must never be.
+/* 904 standard: service-area map (service-area-map skill), adapted for a
+   SERVICE-AREA business.
 
-   Loaded behind a FACADE: the Google iframe sets third-party cookies, and this
-   site ships a consent bar. No iframe until the visitor has accepted cookies or
-   explicitly asks for the map. Keeps every page's footer free of Google's
-   payload too. */
+   Two facts drove the implementation, both verified on Google Maps 2026-08-19:
+   1. Ace & Ash has NO public street address. Google renders no map marker for
+      the listing at all — competitors in the same result set are pinned, she
+      isn't. There is no storefront to pin, and her home address must never be
+      published. So the pin marks Nocatee, where she's based, not a fake shop.
+   2. Google's keyless `output=embed` iframe rendered a broken, never-loading
+      white place-card over the map in every variant tried (business query,
+      city query, classic `maps.google.com` form). Not shippable.
 
-const CONSENT_KEY = 'cookie:aceandash';
-const EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
-  'Ace & Ash Cleaning, Nocatee, FL'
-)}&z=10&output=embed`;
+   So the rendered map is OpenStreetMap: keyless, deterministic, draws a real
+   marker, and sets no third-party cookies — which also means it needs no
+   cookie-consent gate and adds nothing to the critical path. Google is still
+   one click away via the link, which is where the local-SEO value actually
+   sits for a business with no address to rank. */
+
+const NOCATEE = { lat: 30.0844, lon: -81.409 };
+// Bbox spans Jacksonville down to St. Augustine — the real service footprint.
+const BBOX = [-81.86, 29.83, -81.19, 30.42].join('%2C');
+const OSM = `https://www.openstreetmap.org/export/embed.html?bbox=${BBOX}&layer=mapnik&marker=${NOCATEE.lat}%2C${NOCATEE.lon}`;
 
 export default function ServiceAreaMap() {
-  const [live, setLive] = useState(false);
-
-  useEffect(() => {
-    try {
-      if (localStorage.getItem(CONSENT_KEY) === 'all') setLive(true);
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
   return (
-    <section aria-labelledby="map-h" className="border-t border-[#d6cfc2] bg-[#f4f0e9] py-[clamp(3.5rem,9vh,6rem)] no-print">
+    <section
+      aria-labelledby="map-h"
+      className="border-t border-[#d6cfc2] bg-[#f4f0e9] py-[clamp(3.5rem,9vh,6rem)] no-print"
+    >
       <div className="shell grid items-start gap-x-16 gap-y-10 md:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="stationery reveal-soft">Where we clean</p>
@@ -38,52 +36,35 @@ export default function ServiceAreaMap() {
             St. Johns <span className="whisper">and the</span> south side.
           </h2>
           <p className="mt-6 max-w-[38ch] text-[0.95rem] leading-relaxed text-[#4a443b] reveal-soft">
-            Based in {SITE.baseCity}, {SITE.region}. We come to you — there&rsquo;s no shop to visit,
-            just a van in your driveway at the time we agreed on.
+            Based in {SITE.baseCity}, {SITE.region}. We come to you &mdash; there&rsquo;s no shop to
+            visit, just a van in your driveway at the time we agreed on.
           </p>
+          <ul className="stationery mt-8 grid gap-x-8 gap-y-2.5 text-[#6b6459] sm:grid-cols-2 reveal-soft">
+            {AREAS.map((a) => (
+              <li key={a.slug}>{a.name}</li>
+            ))}
+          </ul>
           <a
             href={SITE.googleUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="stationery lnk mt-8 inline-block reveal-soft"
           >
-            Open in Google Maps &rarr;
+            Find us on Google &rarr;
           </a>
         </div>
 
         <div className="reveal-soft">
           <div className="relative aspect-[16/10] w-full overflow-hidden border border-[#d6cfc2] bg-[#ebe5db]">
-            {live ? (
-              <iframe
-                title="Map of the Ace &amp; Ash Cleaning service area around Nocatee, Florida"
-                src={EMBED}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0 h-full w-full border-0"
-              />
-            ) : (
-              /* Facade for anyone who hasn't accepted cookies. Not a fake map —
-                 no invented geography — just the real area list set as type, so
-                 the panel carries weight instead of sitting empty. */
-              <div className="absolute inset-0 flex flex-col justify-between p-7 md:p-9">
-                {/* Real content, so it must be readable — #6b6459 on #ebe5db is 4.67:1,
-                    clears AA. Ghosting it to a decorative tint failed the axe gate. */}
-                <p className="display text-[clamp(1.05rem,2vw,1.5rem)] leading-[1.5] text-[#6b6459]">
-                  {AREAS.map((a) => a.name).join(' · ')}
-                </p>
-                <div className="flex flex-wrap items-end justify-between gap-4">
-                  <p className="max-w-[26ch] text-[0.8rem] leading-relaxed text-[#6b6459]">
-                    Google&rsquo;s map sets its own cookies, so we load it only on request.
-                  </p>
-                  <button type="button" onClick={() => setLive(true)} className="btn flex-none">
-                    Show the map
-                  </button>
-                </div>
-              </div>
-            )}
+            <iframe
+              title="Map of the Ace &amp; Ash Cleaning service area, centred on Nocatee, Florida"
+              src={OSM}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full border-0"
+            />
           </div>
           <p className="stationery mt-3.5 text-[#6b6459]">
-            Service area &middot; we travel to you
+            Based in {SITE.baseCity} &middot; we travel to you
           </p>
         </div>
       </div>
