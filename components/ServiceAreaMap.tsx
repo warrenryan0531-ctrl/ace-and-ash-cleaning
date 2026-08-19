@@ -54,7 +54,11 @@ export default function ServiceAreaMap() {
           </a>
         </div>
 
-        <div className="reveal-soft">
+        {/* No reveal-soft on this column: the fade/transform leaves the box
+            effectively sized at zero while Leaflet initialises inside the
+            iframe, so the map paints blank until something forces a reload.
+            The map arrives without the fade — correct beats choreographed. */}
+        <div>
           <div className="relative aspect-[16/10] w-full overflow-hidden border border-[#d6cfc2] bg-[#ebe5db]">
             <iframe
               title="Map of the Ace &amp; Ash Cleaning service area, centred on Nocatee, Florida"
