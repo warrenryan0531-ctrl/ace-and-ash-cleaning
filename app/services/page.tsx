@@ -19,8 +19,8 @@ export default function Services() {
           <span className="whisper">five ways</span> WE HELP.
         </h1>
         <p className="mt-8 max-w-[54ch] text-[1.05rem] leading-relaxed text-[#3a352e]">
-          Every job is quoted on the house itself, not a square-foot table. Erica walks it, prices it, and
-          tells you honestly if a different service would serve you better.
+          Five things, done properly, rather than a menu of twenty. If what you need is not
+          here, call and ask — Erica will tell you honestly whether it is work we should take.
         </p>
       </section>
 

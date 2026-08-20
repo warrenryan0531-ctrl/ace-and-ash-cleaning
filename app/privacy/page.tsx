@@ -11,11 +11,11 @@ export default function Privacy() {
         <p>{SITE.legalName} collects only what you send us through this website: your name, phone number, email
           address, the area you live in, and whatever you tell us about your home.</p>
         <p>We use it to reply to you and to schedule work. We do not sell it, rent it, or pass it to advertisers.
-          Form submissions are delivered by email to Erica and to our website partner, 904 Digital Media, who
+          Form submissions are delivered by email to Erica and to our website partner, 904 Digital Media, which
           maintains this site.</p>
         <p>We use a small amount of analytics to understand which pages people find useful. You can decline
           non-essential cookies from the notice at the bottom of the page.</p>
-        <p>To see what we hold about you, or to have it deleted, email or call us on {SITE.phone}. We will action
+        <p>To see what we hold about you, or to have it deleted, call or text us at {SITE.phone}. We will act on
           it within 30 days.</p>
       </div>
     </section>

@@ -11,7 +11,7 @@ export default function A11y() {
         <p>We build to WCAG 2.2 AA. Every page is keyboard navigable, color contrast is measured rather than
           eyeballed, images carry text alternatives, and motion respects your system&rsquo;s reduced-motion setting.</p>
         <p>The button in the bottom-right corner opens an accessibility panel with ten controls: larger text,
-          taller line height, left alignment, a readable font, high contrast, greyscale, hidden images, paused
+          taller line height, left alignment, a readable font, high contrast, grayscale, hidden images, paused
           animations, highlighted links, and a reading mask. Your choices are remembered on this device.</p>
         <p>If something on this site is difficult to use, tell us and we will fix it. Call or text {SITE.phone}.</p>
       </div>

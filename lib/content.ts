@@ -87,7 +87,7 @@ export const PRICING: PriceBand[] = [
     range: 'Quoted per contract',
     cadence: 'Nightly · Weekly · Monthly',
     blurb:
-      'Commercial work is quoted on square footage, frequency and how late you need us. Evening and weekend schedules are normal here, and the crew is named on the contract.',
+      'Commercial work is quoted on square footage, frequency, and how late you need us. Evening and weekend schedules are normal here, and the crew is named on the contract.',
     includes: [
       'Offices, retail, salons, and churches',
       'Evening and weekend scheduling',

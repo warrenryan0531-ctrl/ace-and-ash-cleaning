@@ -60,7 +60,7 @@ export default function MapArt() {
         <text x="771.7" y="242.8" textAnchor="start">Ponte Vedra</text>
         <text x="387.2" y="340.6" textAnchor="end">Orange Park</text>
         <text x="485.1" y="408.6" textAnchor="end">Julington Creek &amp; Fruit Cove</text>
-        <text x="569.0" y="461.7" textAnchor="end">Durbin Crossing &amp; Rivertown</text>
+        <text x="569.0" y="461.7" textAnchor="end">Durbin Crossing &amp; RiverTown</text>
         <text x="792.8" y="579.2" textAnchor="start">Palencia</text>
         <text x="661.4" y="606.2" textAnchor="end">World Golf Village</text>
         <text x="839.8" y="692.7" textAnchor="end">St. Augustine</text>
