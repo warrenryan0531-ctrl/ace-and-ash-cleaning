@@ -43,7 +43,7 @@ export default function Home() {
           {[
             ['Licensed & insured', 'Registered, insured, and accountable for what we touch.'],
             ['AHA accredited', 'Accredited by the American Housecleaning Association.'],
-            ['Pet & baby safe', 'Environmental products chosen around the people who live there.'],
+            ['Pet & baby safe', 'Kid- and pet-safe products, because somebody crawls on those floors after we leave.'],
             ['Owner-operated', 'Erica still cleans. She is not a call center.'],
           ].map(([t, d]) => (
             <div key={t} className="py-7 md:px-7 md:first:pl-0 md:last:pr-0 reveal-soft">
@@ -61,8 +61,8 @@ export default function Home() {
           <span className="whisper"> by a job, two kids, a dog, and a house that keeps score.</span>
         </p>
         <p className="mt-9 max-w-[54ch] text-[1.05rem] leading-relaxed text-[#3a352e] reveal-soft">
-          Erica Taylor started Ace &amp; Ash helping one struggling mother of four. Eight years on it is a
-          licensed, insured company with a waiting list, and the work has not changed. We come in, we do it
+          Erica Taylor started Ace &amp; Ash helping one struggling mother of four. Eight years later it is a
+          licensed, insured company whose recurring slots are usually spoken for weeks out, and the work has not changed. We come in, we do it
           properly, and you get your Saturday back.
         </p>
         <div className="mt-8 reveal-soft">
@@ -157,7 +157,7 @@ export default function Home() {
             </blockquote>
             <p className="mt-8 max-w-[54ch] leading-relaxed text-[#68635b] reveal-soft">
               It began as a side job for one family and became a full-time, insured company with a team.
-              Erica still runs every estimate herself, which is also why the calendar fills weeks ahead.
+              Erica still runs every estimate herself, which is why the calendar fills weeks ahead.
             </p>
           </div>
           <Photo src="/images/hands.jpg" ratio="4 / 5" sizes="(min-width:1024px) 32vw, 92vw"

@@ -66,7 +66,7 @@ export default function Pricing() {
       <section className="shell py-[clamp(2.5rem,6vh,4rem)]">
         <p className="max-w-[62ch] text-[0.88rem] leading-relaxed text-[#68635b]">
           <strong className="font-semibold text-[#3a352e]">About these numbers.</strong> They are
-          starting ranges, not a price list. Condition, pets, how many bathrooms you have and how often
+          starting ranges, not a price list. Condition, pets, the number of bathrooms, and how often
           we come all move the figure, and the only number that counts is the one Erica gives you after
           seeing the house. Nothing changes on the day unless you ask for something different.
         </p>

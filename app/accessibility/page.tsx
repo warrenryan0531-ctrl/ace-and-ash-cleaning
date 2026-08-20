@@ -8,7 +8,7 @@ export default function A11y() {
       <p className="stationery">Accessibility</p>
       <h1 className="display display-md mt-4 max-w-[18ch]">This site should work for everyone.</h1>
       <div className="mt-10 max-w-[62ch] space-y-6 leading-relaxed text-[#3a352e]">
-        <p>We build to WCAG 2.2 AA. Every page is keyboard navigable, colour contrast is measured rather than
+        <p>We build to WCAG 2.2 AA. Every page is keyboard navigable, color contrast is measured rather than
           eyeballed, images carry text alternatives, and motion respects your system&rsquo;s reduced-motion setting.</p>
         <p>The button in the bottom-right corner opens an accessibility panel with ten controls: larger text,
           taller line height, left alignment, a readable font, high contrast, greyscale, hidden images, paused

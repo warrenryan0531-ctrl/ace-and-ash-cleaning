@@ -4,7 +4,7 @@ import { AREAS } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Where we clean',
-  description: 'Ace & Ash Cleaning serves Nocatee, Ponte Vedra, St. Augustine, World Golf Village, Palencia, Julington Creek, Durbin, Rivertown, Jacksonville Beach, Jacksonville and Orange Park.',
+  description: 'Ace & Ash Cleaning serves Nocatee, Ponte Vedra, St. Augustine, World Golf Village, Palencia, Julington Creek, Durbin, RiverTown, Jacksonville Beach, Jacksonville and Orange Park.',
 };
 
 export default function Areas() {

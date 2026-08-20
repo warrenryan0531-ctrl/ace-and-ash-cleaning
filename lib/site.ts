@@ -44,7 +44,7 @@ export const SERVICES: Service[] = [
     slug: "recurring-care",
     title: "Recurring care",
     lede: "The same home, the same hands, on a rhythm you stop thinking about.",
-    body: "Weekly, every other week, or monthly. You get the same small team each visit, so nobody has to be told twice where the good glasses live or which dog hides under the bed.",
+    body: "Weekly, every other week, or monthly. You get the same small team each visit, so your house stops needing an introduction.",
     detail: [
       "Weekly, biweekly, or monthly",
       "Same team every visit",
@@ -100,7 +100,7 @@ export const SERVICES: Service[] = [
     slug: "commercial",
     title: "Offices, retail & churches",
     lede: "The same standard, after hours.",
-    body: "Booking larger commercial work since summer 2026. Offices, storefronts, salons, and churches across Duval, Clay, and St. Johns, cleaned on a schedule that stays out of your business day.",
+    body: "We have been taking on larger commercial contracts since summer 2026. Offices, storefronts, salons, and churches across Duval, Clay, and St. Johns, cleaned on a schedule that stays out of your business day.",
     detail: [
       "Offices, retail, salons, and churches",
       "Evening and weekend scheduling",
@@ -118,62 +118,88 @@ export const AREAS = [
   { slug: "world-golf-village", name: "World Golf Village", county: "St. Johns County", note: "Recurring care across the village and its surrounding gates." },
   { slug: "palencia", name: "Palencia", county: "St. Johns County", note: "Recurring and deep-clean work throughout the community." },
   { slug: "julington-creek", name: "Julington Creek & Fruit Cove", county: "St. Johns County", note: "Family homes on a weekly and biweekly rhythm." },
-  { slug: "durbin-crossing", name: "Durbin Crossing & Rivertown", county: "St. Johns County", note: "Newer construction, move-ins, and post-builder cleans." },
+  { slug: "durbin-crossing", name: "Durbin Crossing & RiverTown", county: "St. Johns County", note: "Newer construction, move-ins, and post-builder cleans." },
   { slug: "jacksonville-beach", name: "Jacksonville Beach", county: "Duval County", note: "Beach houses, sand, and salt air handled properly." },
   { slug: "jacksonville", name: "Jacksonville", county: "Duval County", note: "Southside, Mandarin, and the San Marco side of the river." },
   { slug: "orange-park", name: "Orange Park", county: "Clay County", note: "Recurring homes and commercial work across Clay." },
 ];
 
-export const STANDARD = [
+/* The checklist. `count` is DERIVED from items.length below — never hardcode
+   it. The page and the homepage both advertise the total, and a number a
+   visitor can sit and count has to be true or the whole "hold us to it"
+   promise collapses. It was 49-claimed / 27-listed before this was fixed. */
+const ROOMS = [
   {
     room: "Kitchen",
-    count: 14,
     items: [
       "Counters cleared, cleaned, and put back",
       "Sink and faucet descaled and dried",
+      "Sink drain and disposal rinsed",
       "Cabinet fronts and handles",
       "Exterior of every appliance",
       "Inside the microwave",
+      "Stovetop, grates, and drip pans",
+      "Range hood face and filter screen",
+      "Small appliances wiped and put back",
       "Backsplash and switch plates",
       "Table and chairs, legs included",
+      "Inside the trash cabinet and lid",
+      "Windowsill over the sink",
       "Floor edges and corners by hand",
     ],
   },
   {
     room: "Bathrooms",
-    count: 13,
     items: [
       "Shower walls, door, and track",
+      "Shower head and taps descaled",
       "Grout lines worked, not just wiped",
+      "Soap dish, shelves, and shower caddy",
       "Toilet, base, and behind the base",
       "Vanity, sink, and fixtures dried to no spots",
+      "Cabinet fronts and drawer handles",
       "Mirror, frame, and light bar",
+      "Exhaust fan cover dusted",
+      "Towel bars and paper holder",
       "Towels folded and squared",
+      "Bin emptied and wiped out",
       "Floor edges and behind the door",
     ],
   },
   {
     room: "Bedrooms & living",
-    count: 12,
     items: [
       "Beds made, linens changed when left out",
+      "Headboard and bed frame",
       "All reachable surfaces dusted",
+      "Lamp bases and shades",
+      "Picture frames and wall art",
       "Baseboards and window sills",
+      "Blinds and window ledges",
       "Under and behind reachable furniture",
+      "Cushions straightened, throws folded",
+      "Remotes and switches wiped",
       "Mirrors and glass",
       "Vacuum lines left straight",
     ],
   },
   {
     room: "Everywhere",
-    count: 10,
     items: [
       "Light switches, handles, and pulls",
       "Ceiling fan blades",
+      "Air vent covers",
+      "Cobwebs cleared from ceiling corners",
       "Interior door frames",
+      "Stair rails and banisters",
+      "Floors vacuumed and mopped throughout",
       "Trash out, liners replaced",
       "Entry mat shaken and squared",
       "A written note of anything we noticed",
     ],
   },
-];
+] as const;
+
+export const STANDARD = ROOMS.map((r) => ({ ...r, count: r.items.length }));
+export const STANDARD_TOTAL = STANDARD.reduce((a, r) => a + r.count, 0);
+

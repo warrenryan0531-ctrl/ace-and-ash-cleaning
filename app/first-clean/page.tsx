@@ -14,7 +14,7 @@ const STEPS = [
   {
     n: '01',
     title: 'You call, and Erica picks up',
-    body: 'Not a call centre and not a form that disappears. Tell her roughly how big the house is, how many bathrooms, whether there are pets, and what is bothering you most. If we are booked out too far to help you, she will say so on that call rather than three days later.',
+    body: 'Not a call center and not a form that disappears. Tell her roughly how big the house is, how many bathrooms, whether there are pets, and what is bothering you most. If we are booked out too far to help you, she will say so on that call rather than three days later.',
   },
   {
     n: '02',
@@ -33,7 +33,7 @@ const STEPS = [
   },
   {
     n: '05',
-    title: 'A walk through at the end',
+    title: 'A walkthrough at the end',
     body: 'If you are home, Erica will walk it with you before leaving. If you are not, you get a message when the team is done. Anything you are not happy with, say so the same day or the next morning and it gets put right — no negotiation, no invoice for the return trip.',
   },
   {
@@ -98,7 +98,7 @@ export default function FirstClean() {
             </ul>
           </div>
           <div>
-            <p className="stationery reveal-soft">You sort out</p>
+            <p className="stationery reveal-soft">What you handle</p>
             <ul className="mt-5 reveal-soft">
               {YOU.map((d) => (
                 <li key={d} className="flex gap-4 border-t border-[#d6cfc2] py-3.5 text-[0.95rem] last:border-b">

@@ -25,11 +25,11 @@ export const PRICING: PriceBand[] = [
     range: '$140 – $220 a visit',
     cadence: 'Weekly · Biweekly · Monthly',
     blurb:
-      'Most homes on our books are three- or four-bedroom houses cleaned every other week, and most of them land in the middle of that range. Weekly homes cost less per visit because there is less to catch up on.',
+      'Most homes on our books are three- or four-bedroom houses cleaned every other week, and they land in the middle of that range. Weekly homes cost less per visit because there is less to catch up on.',
     includes: [
       'Kitchen and bathrooms cleaned properly, not wiped',
       'Floors vacuumed and mopped throughout',
-      'Dusting, surfaces, mirrors and glass',
+      'Dusting, surfaces, mirrors, and glass',
       'Beds made, or linens changed if you leave them out',
       'The same small team every visit',
     ],
@@ -44,10 +44,10 @@ export const PRICING: PriceBand[] = [
       'A deep clean is priced on condition, not just square footage. A house that has been kept up costs less than one that has been waiting a while — and we will tell you honestly which one yours is.',
     includes: [
       'Everything in a standard clean, then further',
-      'Baseboards, trim and door frames by hand',
+      'Baseboards, trim, and door frames by hand',
       'Inside the oven and fridge on request',
-      'Grout, tile and shower glass worked',
-      'Fans, vents and light fixtures',
+      'Grout, tile, and shower glass worked',
+      'Fans, vents, and light fixtures',
     ],
   },
   {
@@ -59,7 +59,7 @@ export const PRICING: PriceBand[] = [
     blurb:
       'Empty houses take longer than people expect, because every cabinet and drawer is now in scope. Priced on bedroom and bathroom count, scheduled around your closing or lease date.',
     includes: [
-      'Inside every cabinet, drawer and closet',
+      'Inside every cabinet, drawer, and closet',
       'Appliance interiors and behind where they sat',
       'Scheduled around closings and lease deadlines',
       'Photos on request for your landlord or agent',
@@ -74,7 +74,7 @@ export const PRICING: PriceBand[] = [
     blurb:
       'Organizing is hard to price sight unseen, because a pantry and a garage are not the same afternoon. Erica will look at the space and give you a flat number for the session before anything starts.',
     includes: [
-      'Pantries, closets, garages and playrooms',
+      'Pantries, closets, garages, and playrooms',
       'Sorted with you, so nothing goes missing',
       'Donation runs taken off your hands',
       'Unhurried help with heavier clear-outs',
@@ -89,7 +89,7 @@ export const PRICING: PriceBand[] = [
     blurb:
       'Commercial work is quoted on square footage, frequency and how late you need us. Evening and weekend schedules are normal here, and the crew is named on the contract.',
     includes: [
-      'Offices, retail, salons and churches',
+      'Offices, retail, salons, and churches',
       'Evening and weekend scheduling',
       'Licensed and insured, with a named crew',
       'Recurring contracts across Duval, Clay & St. Johns',
@@ -102,11 +102,11 @@ export type Faq = { q: string; a: string };
 export const FAQS: Faq[] = [
   {
     q: 'How do you decide what my house costs?',
-    a: 'Erica quotes on the house itself, not a square-foot table. Size matters, but so does condition, how many bathrooms you have, whether there are pets, and how often you want us back. You get a number before anyone starts, and it does not move unless you ask for something different on the day.',
+    a: 'Erica prices the house in front of her, not a square-foot table. Size matters, but so does condition, how many bathrooms you have, whether there are pets, and how often you want us back. You get a number before anyone starts, and it does not move unless you ask for something different on the day.',
   },
   {
     q: 'Why is the first clean more than the ones after it?',
-    a: 'Because it usually is a deep clean. The first visit sets the baseline — the places a normal week never reaches get caught up, and after that the recurring price holds. If your house is already well kept, say so, and Erica will quote the first visit accordingly.',
+    a: 'Because the first one is usually a deep clean. The first visit sets the baseline — the places a normal week never reaches get caught up, and after that the recurring price holds. If your house is already well kept, say so, and Erica will quote the first visit accordingly.',
   },
   {
     q: 'Do I need to be home?',
@@ -118,7 +118,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Do I need to tidy before you come?',
-    a: 'Not for our sake. Clearing counters and floors of clutter means more of your money goes into actual cleaning rather than moving things around, but nobody is going to judge your house. Erica started this company helping people whose houses had gotten away from them.',
+    a: 'Not for our sake. Clearing clutter off the counters and floors means more of your money goes into cleaning, but nobody is going to judge your house. Erica started this company helping people whose houses had gotten away from them.',
   },
   {
     q: 'What if something gets damaged?',
@@ -130,7 +130,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'What if I am not happy with the clean?',
-    a: 'Call the same day or the next morning and Erica will come back and put it right. That is the whole policy. It does not happen often, which is most of why there are thirty-three five-star reviews and nothing below them.',
+    a: 'Call the same day or the next morning and Erica will come back and put it right. That is the whole policy. It does not happen often, which is a large part of why there are thirty-three five-star reviews and nothing below them.',
   },
   {
     q: 'Do you charge for cancellations?',
@@ -138,6 +138,6 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Which areas do you cover?',
-    a: 'Based in Nocatee, working across St. Johns, Duval and Clay counties — Ponte Vedra, St. Augustine, World Golf Village, Palencia, Julington Creek, Fruit Cove, Durbin Crossing, RiverTown, Jacksonville Beach, Jacksonville and Orange Park.',
+    a: 'Based in Nocatee, working across St. Johns, Duval, and Clay counties — Ponte Vedra, St. Augustine, World Golf Village, Palencia, Julington Creek, Fruit Cove, Durbin Crossing, RiverTown, Jacksonville Beach, Jacksonville and Orange Park.',
   },
 ];

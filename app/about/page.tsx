@@ -31,14 +31,14 @@ export default function About() {
           <div className="mt-12 space-y-6 text-[1.05rem] leading-relaxed text-[#3a352e]">
             <p className="reveal-soft">
               Erica did not set out to build a cleaning company. She set out to help someone who was drowning,
-              and then someone else, and then enough people that it stopped being a favour and became a
+              and then someone else, and then enough people that it stopped being a favor and became a
               business. Eight years later Ace &amp; Ash is licensed, insured, accredited by the American
               Housecleaning Association, and has a team — and Erica is still the one who walks your house and
               writes your quote.
             </p>
             <p className="reveal-soft">
               The clients who stay longest tend to be the ones who need it most: parents in the middle of the
-              hardest years, older neighbours who cannot manage a full house anymore, families in the middle of
+              hardest years, older neighbors who cannot manage a full house anymore, families in the middle of
               a move. That is who she started for, and it is still who the calendar is built around.
             </p>
             <p className="reveal-soft">
